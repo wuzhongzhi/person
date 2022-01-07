@@ -1,0 +1,7 @@
+面试题：
+1.怎么打出线程栈信息。
+2.线程池参数
+jstack -pid
+
+ThreadPoolExecutor在构造的时候有几个重要的参数，分别是：
+corePoolSize（核心线程数量）、maximumPoolSize（最大线程数量）、keepAliveTime（线程空余时间）、workQueue（阻塞队列）、handler（任务拒绝策略）
