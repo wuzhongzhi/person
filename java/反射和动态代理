@@ -1,0 +1,75 @@
+面试题;
+  反射部分：
+  1.反射的原理，反射创建类实例的三种方式是什么。
+  2.反射中，Class.forName和ClassLoader区别。
+  3.JAVA的反射机制,反射在哪些地方有应用场景?
+  
+  代理部分：
+  1.动态代理一般有哪几种实现方式？动态代理的应用场景有哪些？
+  2.描述动态代理的几种实现方式，分别说出相应的优缺点。
+  3.动态代理与cglib实现的区别。
+  4.为什么CGlib方式可以对接口实现代理。
+
+
+在编译器写的代码是 .java 文件，经过javac 编译会变成 .class 文件，class 文件会被JVM装载运行（这里就是真正运行着我们所写的代码（虽然是被编译过的），也就所谓的运行时。
+反射就是Java可以给我们在运行时获取类的信息
+
+其实反射就是围绕着Class对象和java.lang.reflect类库来学习，就是各种的API
+Method/Field/Constructor这些都是在java.lang.reflect
+
+泛型是会擦除的，那为什么反射能获取到泛型的信息呢？
+--》泛型擦除是有范围的，定义在类上的泛型信息是不会被擦除的。
+
+动态代理常见的又有两种实现方式：JDK动态代理和CGLIB代理
+
+JDK动态代理其实就是运用了反射的机制，而CGLIB代理则用的是利用ASM框架，通过修改其字节码生成子类来处理。
+
+
+一、静态代理： 例子：程序员Dalao找 Xxx 写代码并且 review 代码（大佬忙不想写代码）
+//程序员接口
+public interface Programmer {
+    void coding();
+}
+//普通程序员
+public class Xxx implements Programmer {
+    @Override
+    public void coding() {
+        System.out.println("Xxx.....coding()");
+    }
+}
+//大佬程序员
+public class Dalao implements Programmer {
+    // 指定程序员，大lao要让谁写
+    private Xxx xxx ;
+    public Dalao(Xxx xxx) {
+        this.xxx = xxx;
+    }
+    // 程序员大lao review
+    public void review() {
+        System.out.println("程序员大V review 过了！");
+    }
+    @Override
+    public void coding() {
+        // 让xxx写代码
+        xxx.coding();
+        // 程序员大V review！
+        review();
+    }
+    }
+//普通程序员提交代码，每次大佬都要review
+public class Main {
+
+    public static void main(String[] args) {
+
+        // xxx工具人出生了
+        Xxx xxx = new Xxx();
+
+        // 程序员大V
+        Programmer programmer = new Dalao(xxx);
+
+        // 受委托程序员大V让xxx写代码，大V(自己)来review
+        programmer.coding();
+    }  
+}
+
+二、动态代理
