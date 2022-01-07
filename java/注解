@@ -1,3 +1,6 @@
+面试题：
+springmvc用到的注解，作用是什么，原理。
+
 # 注解
 ## 常用注解有 @Controller @Component @Repository @Autowired @PostConstruct  @Service
 常用的元Annotation有@Retention 和@Target。@Retention注解可以简单理解为设置注解的生命周期该枚举有三个常量，分别是SOURCE、CLASS和RUNTIME
