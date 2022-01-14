@@ -24,7 +24,7 @@ Method/Field/Constructor这些都是在java.lang.reflect
 
 JDK动态代理其实就是运用了反射的机制，而CGLIB代理则用的是利用ASM框架，通过修改其字节码生成子类来处理。
 
-
+静态代理在编译时就将接口、实现类、代理类这些都变成了一个个实际的 class 文件
 一、静态代理： 例子：程序员Dalao找 Xxx 写代码并且 review 代码（大佬忙不想写代码）
 //程序员接口
 public interface Programmer {
@@ -73,3 +73,24 @@ public class Main {
 }
 
 二、动态代理
+从 JVM 角度来说，动态代理是在运行时动态生成类字节码，并加载到 JVM 中的。
+ JDK 动态代理机制介绍
+ JDK 动态代理有一个最致命的问题是其只能代理实现了接口的类。 
+在 Java 动态代理机制中 InvocationHandler 接口和 Proxy 类是核心。
+JDK 动态代理类使用步骤 定义一个接口及其实现类； 
+自定义 InvocationHandler 并重写invoke方法，在 invoke 方法中我们会调用原生方法（被代理类的方法）并自定义一些处理逻辑； 
+通过 Proxy.newProxyInstance(ClassLoader loader,Class<?>[] interfaces,InvocationHandler h) 方法创建代理对象；
+
+CGLIB 动态代理机制
+
+为了解决jdk动态代理接口这个问题，我们可以用 CGLIB 动态代理机制来避免。 
+CGLIB  (opens new window)(Code Generation Library)是一个基于ASM  (opens new window)的字节码生成库，它允许我们在运行时对字节码进行修改和动态生成。
+CGLIB 通过继承方式实现代理。很多知名的开源框架都使用到了CGLIB  (opens new window)， 例如 Spring 中的 AOP 模块中：
+如果目标对象实现了接口，则默认采用 JDK 动态代理，否则采用 CGLIB 动态代理。
+
+CGLIB 动态代理类使用步骤 
+定义一个类； 自定义 MethodInterceptor 并重写 intercept 方法，
+intercept 用于拦截增强被代理类的方法，和 JDK 动态代理中的 invoke 方法类似；
+通过 Enhancer 类的 create()创建代理类
+
+
