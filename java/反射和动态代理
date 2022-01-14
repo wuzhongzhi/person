@@ -77,20 +77,22 @@ public class Main {
  JDK 动态代理机制介绍
  JDK 动态代理有一个最致命的问题是其只能代理实现了接口的类。 
 在 Java 动态代理机制中 InvocationHandler 接口和 Proxy 类是核心。
-JDK 动态代理类使用步骤 定义一个接口及其实现类； 
-自定义 InvocationHandler 并重写invoke方法，在 invoke 方法中我们会调用原生方法（被代理类的方法）并自定义一些处理逻辑； 
-通过 Proxy.newProxyInstance(ClassLoader loader,Class<?>[] interfaces,InvocationHandler h) 方法创建代理对象；
+JDK 动态代理类使用步骤 
+1.定义一个接口及其实现类； 
+2.自定义 InvocationHandler 并重写invoke方法，在 invoke 方法中我们会调用原生方法（被代理类的方法）并自定义一些处理逻辑； 
+3.通过 Proxy.newProxyInstance(ClassLoader loader,Class<?>[] interfaces,InvocationHandler h) 方法创建代理对象；
+[代码程序入口] (https://github.com/wuzhongzhi/person/blob/18227bb04f3666bcd92f1b192121cba879c0033f/com/example/demo/lecode/proxyDemo/JdkProxyTest.java)
 
 CGLIB 动态代理机制
-
 为了解决jdk动态代理接口这个问题，我们可以用 CGLIB 动态代理机制来避免。 
 CGLIB  (opens new window)(Code Generation Library)是一个基于ASM  (opens new window)的字节码生成库，它允许我们在运行时对字节码进行修改和动态生成。
 CGLIB 通过继承方式实现代理。很多知名的开源框架都使用到了CGLIB  (opens new window)， 例如 Spring 中的 AOP 模块中：
 如果目标对象实现了接口，则默认采用 JDK 动态代理，否则采用 CGLIB 动态代理。
 
 CGLIB 动态代理类使用步骤 
-定义一个类； 自定义 MethodInterceptor 并重写 intercept 方法，
-intercept 用于拦截增强被代理类的方法，和 JDK 动态代理中的 invoke 方法类似；
-通过 Enhancer 类的 create()创建代理类
+1.定义一个类；
+2.自定义 MethodInterceptor 并重写 intercept 方法，intercept 用于拦截增强被代理类的方法，和 JDK 动态代理中的 invoke 方法类似；
+3.通过 Enhancer 类的 create()创建代理类
+[代码程序入口](https://github.com/wuzhongzhi/person/blob/18227bb04f3666bcd92f1b192121cba879c0033f/com/example/demo/lecode/proxyDemo/CglibProxyTest.java)
 
 
