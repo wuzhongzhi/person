@@ -1,4 +1,4 @@
-# 新加坡找工作，为自己和后面的人奉献绵薄之力 2022年1月14日 10:13:00 于安徽省繁昌图书馆
+# 新加坡找工作，
 # 有深度的 Java 面试题
 ## 1.在git上更新面试基础，查漏补缺，且背题目按照文档
 [建议每天背诵](https://github.com/wuzhongzhi/person/blob/63dec48889d8760c314597646c037ed4c3aed912/%E6%89%93%E5%8D%B0.doc)
@@ -8,3 +8,5 @@
 ![image](https://github.com/wuzhongzhi/person/blob/9ee9090a0ed75892087ec53f4e73341db4db18a7/images/strategy.png)
 
 
+### 鞭笞自己和后面的人奉献绵薄之力 
+#### 2022年1月14日 10:13:00 于安徽省繁昌图书馆
