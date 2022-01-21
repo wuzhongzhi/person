@@ -5,6 +5,10 @@ drop直接删掉表 truncate删除表中数据
 TRUNCATE 和DELETE只删除数据，而DROP则删除整个表（结构和数据）。
 delete语句为DML（Data Manipulation Language),这个操作会被放到 rollback segment中,事务提交后才生效。
 truncate、drop是DDL（Data Define Language),操作立即生效，原数据不放到 rollback segment中，不能回滚
+### 聚簇索引和二级索引和回表
+每个表都有一个索引存储了所有数据的，一个表中只有一个，且建立在主键上面的，其他索引就是建立在某几个经常查询的列上面 
+
+“回表”使用二级索引时，二级索引只存储了部分数据，如果根据键值查找到的数据不能包括全部目标数据，根据二级索引的指针，来找到聚簇索引就的全部数据
 
 ### B+树
 
