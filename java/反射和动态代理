@@ -1,7 +1,17 @@
 面试题;
   反射部分：
   1.反射的原理，反射创建类实例的三种方式是什么。
+  通过一个类的全限定名来获取定义此类的二进制字节流。
+  将这个字节流所代表的的静态存储结构转化为方法区的运行时数据结构。
+  在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问入口。
+        Class refacClass = Class.forName("com.wzz.hjkg.file.Refac");
+        Class clazz = Refac.class;
+        Refac refac = new Refac();
+        Class cla = refac.getClass();
+        cla.newInstance();
+  
   2.反射中，Class.forName和ClassLoader区别。
+  
   3.JAVA的反射机制,反射在哪些地方有应用场景?
   
   代理部分：
