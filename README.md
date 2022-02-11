@@ -1,5 +1,6 @@
 # 新加坡找工作，
 # 有深度的 Java 面试题
+## [宝藏终极面试题](https://www.jianshu.com/p/0df3d5641c1c?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation&accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOiJhY2Nlc3NfcmVzb3VyY2UiLCJleHAiOjE2NDQ1NDQ1MTUsImciOiJMVVl1WFVHU1g4d1RPelk3IiwiaWF0IjoxNjQ0NTQ0MjE1LCJ1c2VySWQiOi0xNzUxODAyMjIwfQ.lfRec9X5eBBY0qxRACbz4D9Et8xkDU6Wny73zfVrAmE)
 ## 1.在git上更新面试基础，查漏补缺，且背题目按照文档
 [建议每天背诵](https://github.com/wuzhongzhi/person/blob/63dec48889d8760c314597646c037ed4c3aed912/%E6%89%93%E5%8D%B0.doc)
 ## 2.每天刷leecode题策略是：双指针、排序、贪心思想、二分查找、分治、搜索、动态规划 按照以下顺序
